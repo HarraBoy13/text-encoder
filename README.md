@@ -1,3 +1,19 @@
 # Text Compressor
 
-This is a text compressor using the Huffman encoding algorithm.
+Created by Harish M, CH25B038
+
+## Overview
+
+This project aims to understand the inner workings of a famous compression algorithm, the Huffman Encoding Algorithm. It uses file input and output to directly write into .txt files. This project uses a node object to define the Huffman Tree, which is the main graph that determines the codes for each letter. It uses this to create a binary sequence of 0s and 1s, which is then joined together and broken apart into bytes of 8, then converted into a raw binary file.
+
+## Inner Workings
+
+Huffman Encoding is one of the earliest theoretical encoding systems. It is born from the field of information theory, which concerns how information from systems is quantified. The basic working of this algorithm, and this implementation is as follows:
+1. First, the text is scanned, and the frequencies of each letter is counted and stored in the std::map object.
+2. The std::map object is then converted into a sequence of node objects, stored in an std::priority_queue min-heap.
+3. Then, the graph is built, taking two elements out of the heap, and combining them into a new node, then pushed back.
+4. Step 3 is repeated until there is only one element in the heap.
+5. Using the depth-first search algorithm, each element is assigned their codes, stored in an std::map object, with being the first-child adding a 0, and being the second-child adding a 1 at the end.
+6. The binary is then later appended to a .txt file filename_bin.txt, filled with only 0s and 1s.
+7. Using filename_bin.txt, every 8 characters are taken, and changed into a character using ASCII references.
+8. This is then written as binary into a .bin file, created in the same folder.
