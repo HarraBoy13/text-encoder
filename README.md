@@ -17,3 +17,28 @@ Huffman Encoding is one of the earliest theoretical encoding systems. It is born
 6. The binary is then later appended to a .txt file filename_bin.txt, filled with only 0s and 1s.
 7. Using filename_bin.txt, every 8 characters are taken, and changed into a character using ASCII references.
 8. This is then written as binary into a .bin file, created in the same folder.
+
+## Concepts Learned
+1. C++ file handling
+    1. Using `ifstream`, `ofstream`, `fstream`
+    2. Basic file handling
+    3. `ios::trunc`, `ios::out`, `ios::app`, and uses of these.
+2. Basic C++
+    1. Pointers, `struct`s
+    2. `.flush()` function and its use.
+3. Object Oriented Programming
+    1. Classes, `class` keyword
+    2. Constructor functions
+    3. Destructor functions
+    4. Custom functions
+    5. `private` and `public` variables
+4. Graphs in C++
+    1. Nodes
+    2. Child nodes
+    3. Joining two nodes
+5. Huffman Encoding
+    1. `std::priority_queue` and `std::map` objects, and their uses.
+6. File Structure
+    1. `include`, `src`, and other standard file hierarchies.
+7. Makefile
+    1. `g++` compiler statements, compilation hierarchy, commands
