@@ -1,28 +1,33 @@
 #include "huffman.hpp"
 #include "graph.hpp"
-#include <iostream>
 
 int main() {
-    std::ifstream file("files/file.txt");
+    Encoder encoder;
 
-    HEFile codes;
-    Node* root = codes.create_graph(file);
-    codes.construct_code(root);
-
-    std::map<char, std::string> code_db = codes.return_db();
-
-    std::cout << "Codes: " << std::endl;
-    for(const auto pair: code_db) {
-        if (pair.first == 32) std::cout << "Space: ";
-        if (pair.first > 32) std::cout << std::string(1, pair.first);
-        std::cout << " - " << pair.second << std::endl;
+    std::fstream in_file("file\\in_file.txt", std::ios::in);
+    if (!in_file) {
+        std::cerr << "Error 1 - Input file connection issues." << std::endl;
+        return -1;
     }
 
-    std::cout << std::endl;
-    int fs = codes.file_size(), cs = codes.comp_size();
-    std::cout << "File size: " << fs << std::endl;
-    std::cout << "Compressed size: " << cs << std::endl;
-    std::cout << "Savings: " << fs - cs << std::endl;
+    std::fstream out_file("file\\out_file.bin", std::ios::out | std::ios::binary);
+    std::fstream _01_file("file\\out_file_bin.bin", std::ios::out | std::ios::trunc);
+
+    Node* root = encoder.create_graph(in_file);
+    encoder.construct_code(root);
+    std::map<char, std::string> code_db = encoder.return_db();
+
+    // Debugging snippet for checking working of the creation of codes
+    for(auto& [ch, code]: code_db) {
+        std::cout << "{";
+        if (ch <= 32) std::cout << std::to_string(ch);
+        else std::cout << ch;
+        std::cout << ": " << code;
+        std::cout << "}, ";
+    }
+
+    encoder.encode_into_file(in_file, out_file);
+    encoder.encode_as_01(in_file, _01_file);
 
     return 0;
 }
