@@ -54,5 +54,4 @@ Huffman Encoding is one of the earliest theoretical encoding systems. It is born
     1. `g++` compiler statements, compilation hierarchy, commands
 
 ## Version Log
-1. v0.1 - Base product released, can change from text into a string of 0s and 1s.
-2. v0.1.1 (current) - Encoder object made more abstract, seperate folder, project encoding tested and works perfectly.
+1. v0.1 (current) - Encoder object made more abstract, seperate folder, project encoding tested and works perfectly.
