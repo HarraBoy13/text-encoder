@@ -6,6 +6,15 @@ Created by Harish M, CH25B038
 
 This project aims to understand the inner workings of a famous compression algorithm, the Huffman Encoding Algorithm. It uses file input and output to directly write into .txt files. This project uses a node object to define the Huffman Tree, which is the main graph that determines the codes for each letter. It uses this to create a binary sequence of 0s and 1s, which is then joined together and broken apart into bytes of 8, then converted into a raw binary file.
 
+## Important Advisory Upon Usage
+- Upon cloning this project, it is suggested to create the following in your current project working directory:
+    1. A `file` folder containing:
+        1. `in_file.txt` - This file contains your raw data: paragraphs, poems, etc.
+    2. An `exe` folder - This will serve as the folder for your executable.
+
+- Also, the `.vscode` file is expected to be cloned as is, as it contains information that needs for this project to work.
+- This project has been tested exclusively on **VS Code**, and hence, is confirmed to only work on **VS Code** and **Cursor**. Else, stay tuned! A better version is coming soon... ;)
+
 ## Inner Workings
 
 Huffman Encoding is one of the earliest theoretical encoding systems. It is born from the field of information theory, which concerns how information from systems is quantified. The basic working of this algorithm, and this implementation is as follows:
@@ -19,6 +28,7 @@ Huffman Encoding is one of the earliest theoretical encoding systems. It is born
 8. This is then written as binary into a .bin file, created in the same folder.
 
 ## Concepts Learned
+
 1. C++ file handling
     1. Using `ifstream`, `ofstream`, `fstream`
     2. Basic file handling
@@ -42,3 +52,7 @@ Huffman Encoding is one of the earliest theoretical encoding systems. It is born
     1. `include`, `src`, and other standard file hierarchies.
 7. Makefile
     1. `g++` compiler statements, compilation hierarchy, commands
+
+# Version Log
+1. v0.1 - Base product released, can change from text into a string of 0s and 1s.
+2. v0.1.1 (current) - Encoder object made more abstract, seperate folder, project encoding tested and works perfectly.
