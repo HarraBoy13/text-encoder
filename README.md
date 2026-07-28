@@ -14,8 +14,8 @@ Huffman Encoding is one of the earliest theoretical encoding systems. It is born
 3. Then, the graph is built, taking two elements out of the heap, and combining them into a new node, then pushed back.
 4. Step 3 is repeated until there is only one element in the heap.
 5. Using the depth-first search algorithm, each element is assigned their codes, stored in an `std::map` object, with being the first-child adding a 0, and being the second-child adding a 1 at the end.
-6. The binary is then later appended to a `.txt` file `mid.txt`, filled with only 0s and 1s.
-7. Using `mid.txt`, every 8 characters are taken, and changed into a character using ASCII references.
+6. The binary is then later appended to a string `bin_string`, filled with only 0s and 1s.
+7. Using `bin_string`, every 8 characters are taken, and changed into a character using ASCII references.
 8. This is then written as binary into a .bin file, created in the same folder.
 
 ## Concepts Learned
