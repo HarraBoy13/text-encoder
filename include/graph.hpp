@@ -21,6 +21,7 @@ class Node {
     char get_char() const;
     void set_char(char ch);
     Node* join(Node* n2);
+    
     ~Node();
 };
 
