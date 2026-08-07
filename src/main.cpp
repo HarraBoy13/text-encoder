@@ -11,7 +11,6 @@ int main() {
     }
 
     std::fstream out_file("file\\out_file.bin", std::ios::out | std::ios::binary);
-    std::fstream _01_file("file\\out_file_bin.bin", std::ios::out | std::ios::trunc);
 
     Node* root = encoder.create_graph(in_file);
     encoder.construct_code(root);
@@ -25,9 +24,8 @@ int main() {
         std::cout << ": " << code;
         std::cout << "}, ";
     }
-
+    
     encoder.encode_into_file(in_file, out_file);
-    encoder.encode_as_01(in_file, _01_file);
 
     return 0;
 }

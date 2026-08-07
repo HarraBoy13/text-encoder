@@ -7,13 +7,30 @@ Created by Harish M, CH25B038
 This project aims to understand the inner workings of a famous compression algorithm, the Huffman Encoding Algorithm. It uses file input and output to directly write into .txt files. This project uses a node object to define the Huffman Tree, which is the main graph that determines the codes for each letter. It uses this to create a binary sequence of 0s and 1s, which is then joined together and broken apart into bytes of 8, then converted into a raw binary file.
 
 ## Important Advisory Upon Usage
+
 - Upon cloning this project, it is suggested to create the following in your current project working directory:
     1. A `file` folder containing:
         1. `in_file.txt` - This file contains your raw data: paragraphs, poems, etc.
     2. An `exe` folder - This will serve as the folder for your executable.
 
-- Also, the `.vscode` file is expected to be cloned as is, as it contains information that needs for this project to work.
-- This project has been tested exclusively on **VS Code**, and hence, is confirmed to only work on **VS Code** and **Cursor**. Else, stay tuned! A better version is coming soon... ;)
+### Running the File
+If you want to create the executable on a command terminal, use the following command:
+
+```
+mingw32-make
+```
+
+or use 
+```
+g++ -Iinclude src/*.cpp -o <RequiredInstallPath>
+```
+Replace `src/*.cpp` with all the files in the `src/` folder.
+
+Then the file is saved as `Text_Encoder.exe` in the `exe` folder, which you can use to convert your files.
+
+### VS Code Usage
+- If the code is meant to be run in VS Code, the `.vscode` file is expected to be cloned as is, as it contains information that needs for this project to work.
+- This project has been tested exclusively on **VS Code**. Else, stay tuned! A better version is coming soon... ;)
 
 ## Inner Workings
 
@@ -36,6 +53,7 @@ Huffman Encoding is one of the earliest theoretical encoding systems. It is born
 2. Basic C++
     1. Pointers, `struct`s
     2. `.flush()` function and its use.
+    3. Custom comparator functions in C++
 3. Object Oriented Programming
     1. Classes, `class` keyword
     2. Constructor functions
@@ -54,4 +72,5 @@ Huffman Encoding is one of the earliest theoretical encoding systems. It is born
     1. `g++` compiler statements, compilation hierarchy, commands
 
 ## Version Log
-1. v0.1 (current) - Encoder object made more abstract, seperate folder, project encoding tested and works perfectly.
+1. v0.1 - Encoder object made more abstract, seperate folder, project encoding tested and works perfectly.
+2. v0.1.1 (current) - Slight cleaning up in the Makefile
