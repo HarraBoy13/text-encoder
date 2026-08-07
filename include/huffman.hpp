@@ -3,6 +3,7 @@
 #include <fstream>
 #include <queue>
 #include <cstring>
+#include <random>
 #include <iostream>
 
 #include "graph.hpp"
@@ -22,4 +23,10 @@ class Encoder {
     // Various encoding functions
     void encode_into_file(std::fstream& in_file, std::fstream& out_file);
     void encode_as_01(std::fstream& in_file, std::fstream& out_file);
+
+    // Random key generator
+    int generate(int bits);
+
+    // Encoding graph into binary
+    std::string encode_graph(int key);
 };

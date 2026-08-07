@@ -103,3 +103,13 @@ void Encoder::encode_as_01(std::fstream& in_file, std::fstream& out_file) {
     out_file.clear();
     out_file.seekg(0);
 }
+
+// Generate a random key
+int Encoder::generate(int bits) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> distb(1 << (bits - 1), (1 << bits) - 1);
+
+    return distb(gen);
+}
+
