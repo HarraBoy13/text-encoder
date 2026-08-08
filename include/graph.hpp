@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <utility>
+#include <bitset>
 #include <map>
 
 class Node {
@@ -21,6 +22,8 @@ class Node {
     char get_char() const;
     void set_char(char ch);
     Node* join(Node* n2);
+
+    void encode_graph(std::string& sequence);
     
     ~Node();
 };

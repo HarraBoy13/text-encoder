@@ -42,6 +42,26 @@ Node* Node::join(Node* n2) {
     return n;
 }
 
+// Helper function
+std::string to_bin(char character) {
+    int number = character;
+    std::bitset<8> value(static_cast<unsigned char>(character));
+    return value.to_string();
+}
+
+// Encodes the graph into a string literal
+void Node::encode_graph(std::string& sequence) {
+    if (this->is_leaf()) {
+        sequence.push_back('1');
+        sequence += to_bin(character);
+    }
+    else {
+        sequence.push_back('0');
+        this->child_1->encode_graph(sequence);
+        this->child_2->encode_graph(sequence);
+    }
+}
+
 // Destructor
 Node::~Node() {
     if (child_1) delete child_1;
