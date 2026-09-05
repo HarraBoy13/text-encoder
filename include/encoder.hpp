@@ -1,29 +1,33 @@
 #pragma once
 
-#include <fstream>
 #include <queue>
 #include <cstring>
 #include <random>
-#include <iostream>
 
 #include "graph.hpp"
 
 class Encoder {
     private:
+    std::fstream in_file, out_file;
+    Node* datatree;
+
     std::map<char, int> char_freq;
     std::map<char, std::string> code_db;
     std::string code;
 
     public:
+    Encoder(std::string ifile, std::string ofile);
     // Helper functions to create the code
-    Node* create_graph(std::fstream& file);
+    void create_graph();
     void construct_code(Node* nd);
     std::map<char, std::string> return_db() const;
 
     // Various encoding functions
-    void encode_into_file(std::fstream& in_file, std::fstream& out_file, Node* datatree);
-    void encode_as_01(std::fstream& in_file, std::fstream& out_file);
+    void encode_into_file();
+    void reset_files();
 
     // Random key generator
     int generate(int bits);
+
+    ~Encoder();
 };

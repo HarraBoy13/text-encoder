@@ -1,34 +1,51 @@
 #include "encoder.hpp"
+#include "decoder.hpp"
 #include "graph.hpp"
 
 int main(int argc, char* argv[]) {
-    std::fstream in_file("file\\in_file.txt", std::ios::in);
-    if (!in_file) {
-        std::cerr << "Error 1 - Input file connection issues." << std::endl;
+    if (argc < 4) {
+        std::cerr << "Invalid call, too few arguments." << std::endl;
         return -1;
     }
-    
-    Encoder encoder;
-    std::fstream out_file("file\\out_file.bin", std::ios::out | std::ios::binary);
 
-    Node* root = encoder.create_graph(in_file);
-    encoder.construct_code(root);
-    std::map<char, std::string> code_db = encoder.return_db();
-
-    // Debugging snippet for checking working of the creation of codes
-    
-    std::cout << "{";
-    for(auto& [ch, code]: code_db) {
-        std::cout << "{";
-        if (ch <= 32) std::cout << std::to_string(ch);
-        else std::cout << ch;
-        std::cout << ": " << code;
-        std::cout << "}";
-        if ((code_db.rbegin())->first != ch) std::cout << ", ";
-        else std::cout << "}\n";
+    if (argc > 4) {
+        std::cerr << "Invalid call, too many arguments." << std::endl;
+        return -1;
     }
-    
-    encoder.encode_into_file(in_file, out_file, root);
 
+    int mode = std::stoi(argv[1]);
+    std::string in_file_path = argv[2];
+    std::string out_file_path = argv[3];
+    
+    if (mode == 0) {        
+        Encoder encoder(in_file_path, out_file_path);
+        encoder.create_graph();
+        encoder.encode_into_file();
+
+        std::cout << "File encoded in path successfully" << std::endl;
+    }
+    else if (mode == 1) {
+        std::fstream in_file(in_file_path, std::ios::in | std::ios::binary);
+        if (!in_file) {
+            std::cerr << "Error 1 - Input file does not exist." << std::endl;
+            return -1;
+        }
+        
+        std::fstream out_file(out_file_path, std::ios::out);
+
+        if (!out_file) {
+            std::cerr << "Error 2 - Output file access issues." << std::endl;
+            return -1;
+        }
+
+        Decoder decoder;
+
+        in_file.close();
+        out_file.close();
+    }
+    else {
+        std::cerr << "Invalid call, invalid mode." << std::endl;
+        return -1;
+    }
     return 0;
 }

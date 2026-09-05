@@ -2,6 +2,7 @@
 
 // Constructors
 Node::Node() : value(0), character('\0'), child_1(nullptr), child_2(nullptr) {}
+Node::Node(char ch) : value(0), character(ch), child_1(nullptr), child_2(nullptr) {}
 Node::Node(int val, char ch) : value(val), character(ch), child_1(nullptr), child_2(nullptr) {}
 
 // Returns the children as a std::pair

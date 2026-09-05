@@ -11,14 +11,22 @@ This project aims to understand the inner workings of a famous compression algor
 - Upon cloning this project, it is suggested to create the following in your current project working directory:
     1. A `file` folder containing:
         1. `in_file.txt` - This file contains your raw data: paragraphs, poems, etc.
-    2. An `exe` folder - This will serve as the folder for your executable.
 
 ### Running the File
+
 If you want to create the executable on a command terminal, use the following command:
 
+Linux:
+```
+make
+```
+
+Windows (mingw Compiler):
 ```
 mingw32-make
 ```
+
+Then the file is saved as `app.exe`, which you can use to convert your files.
 
 or use 
 ```
@@ -26,11 +34,10 @@ g++ -Iinclude src/*.cpp -o <RequiredInstallPath>
 ```
 Replace `src/*.cpp` with all the files in the `src/` folder.
 
-Then the file is saved as `Text_Encoder.exe` in the `exe` folder, which you can use to convert your files.
-
-### VS Code Usage
-- If the code is meant to be run in VS Code, the `.vscode` file is expected to be cloned as is, as it contains information that needs for this project to work.
-- This project has been tested exclusively on **VS Code**. Else, stay tuned! A better version is coming soon... ;)
+To run the file, just use this command
+```
+.\app.exe
+```
 
 ## Inner Workings
 

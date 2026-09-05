@@ -1,5 +1,8 @@
 #pragma once
+
 #include <string>
+#include <fstream>
+#include <iostream>
 #include <utility>
 #include <bitset>
 #include <map>
@@ -13,6 +16,7 @@ class Node {
 
     public:
     Node();
+    Node(char ch);
     Node(int val, char ch);
 
     std::pair<Node*, Node*> children() const;

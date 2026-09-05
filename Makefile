@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -g -Iinclude
 SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:.cpp=.o)
-TARGET = "exe/Text_Compressor.exe"
+TARGET = "app.exe"
 
 all: $(TARGET)
 
